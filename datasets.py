@@ -353,11 +353,12 @@ class ImageNetDataset(BaseDataset):
 class VQAv2Dataset(BaseDataset):
     def __init__(self, data_path, **kwargs):
         super().__init__(data_path=data_path, **kwargs)
-        ans2label_file = os.path.join(data_path, "v2_mscoco_train2014_annotations.json")
+        ans2label_file = os.path.join(data_path, "train_annotations.jsonl")
         ans2label = {}
         label2ans = []
         with open(ans2label_file, mode="r", encoding="utf-8") as reader:
             for i, line in enumerate(reader):
+                data = json.loads(line.strip())
                 ans = data["answer"]
                 label = data["label"]
                 label = int(label)
@@ -374,7 +375,7 @@ class VQAv2Dataset(BaseDataset):
             # return ("vqa.train.jsonl", "vqa.trainable_val.jsonl")
             return ("train.jsonl", )
         elif split == "val":
-            return ("val.jsonl")
+            return ("val.jsonl", )
         elif split == "test":
             return ("vqa.test.jsonl", )
         elif split == "test-dev":
