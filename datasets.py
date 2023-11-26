@@ -372,9 +372,9 @@ class VQAv2Dataset(BaseDataset):
     def get_index_files(split, task=None):
         if split == "train":
             # return ("vqa.train.jsonl", "vqa.trainable_val.jsonl")
-            return ("v2_OpenEnded_mscoco_train2014_questions.json", "v2_OpenEnded_mscoco_train2014_questions.json")
+            return ("train.jsonl", )
         elif split == "val":
-            return ("v2_OpenEnded_mscoco_val2014_questions.json", )
+            return ("val.jsonl")
         elif split == "test":
             return ("vqa.test.jsonl", )
         elif split == "test-dev":

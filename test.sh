@@ -11,8 +11,8 @@ python run_beit3_finetuning.py \
         --epochs 10 \
         --warmup_epochs 1 \
         --drop_path 0.1 \
-        --sentencepiece_model beit3.spm \
-        --finetune /checkpoint/beit3_base_patch16_224.pth \
+        --sentencepiece_model models/beit3.spm \
+        --finetune models/checkpoint/beit3_base_patch16_224.pth \
         --data_path data/vqa/ \
         --output_dir models \
         --log_dir log \
