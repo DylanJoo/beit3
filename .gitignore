@@ -1,0 +1,5 @@
+__pycache__/
+data/vqa/v2_mscoco_val2014_annotations.json
+data/vqa/v2_OpenEnded_mscoco_train2014_questions.json
+data/vqa/v2_OpenEnded_mscoco_val2014_questions.json
+log/

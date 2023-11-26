@@ -17,7 +17,7 @@ import torch.nn.functional as F
 from timm.utils import ModelEma
 from timm.utils import accuracy, ModelEma
 from timm.loss import LabelSmoothingCrossEntropy, SoftTargetCrossEntropy
-from datasets import get_sentencepiece_model_for_beit3
+# from datasets import get_sentencepiece_model_for_beit3
 
 import utils
 
@@ -243,7 +243,9 @@ class CaptioningHandler(TaskHandler):
         super().__init__()
         self.predictions = []
         self.criterion = utils.BertCaptioningLoss(args.label_smoothing, args.drop_worst_ratio, args.drop_worst_after)
-        self.tokenizer = get_sentencepiece_model_for_beit3(args)
+        # self.tokenizer = get_sentencepiece_model_for_beit3(args)
+        from transformers import XLMRobertaTokenizer
+        self.tokenizer = XLMRobertaTokenizer(args.sentencepiece_model)
         self.num_beams = args.num_beams
         self.max_len = args.num_max_bpe_tokens
         self.length_penalty = args.length_penalty
